@@ -8,9 +8,6 @@ angular.module('karcsiApp')
       replace: true,
       scope: {
         'toedit' : '='
-      },
-      link: function(scope, element, attrs){
-        console.dir(scope.toedit);
       }
     };
   });
