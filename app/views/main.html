@@ -1,17 +1,32 @@
 <h2>the main view</h2>
-<table>
+<table class="table table-bordered table-hover">
   <thead>
     <tr>
       <th>Name</th>
       <th>Description</th>
       <th>Price</th>
+      <th>Actions</th>
     </tr>
   </thead>
   <tbody>
     <tr ng-repeat="food in foods">
-      <td>{{food.name}}</td>
-      <td>{{food.description}}</td>
-      <td>{{food.price | currency }}</td>
+      <td>
+        <div ng-if="!underEdit">{{food.name}}</div>
+        <vcs-editform toedit="food.name"></vcs-editform>
+      </td>
+      <td>
+        <div ng-if="!underEdit">{{food.description}}</div>
+        <vcs-editform toedit="food.description"></vcs-editform>
+      </td>
+      <td>
+        <div ng-if="!underEdit">{{food.price | currency }}</div>
+        <vcs-editform toedit="food.price"></vcs-editform>
+      </td>
+      <td>
+        <buttons class="btn btn-warning" ng-if="!underEdit"><i class="glyphicon glyphicon-edit"></i></buttons>
+        <buttons class="btn btn-primary" ng-if="!underEdit"><i class="glyphicon glyphicon-search"></i></buttons>
+        <buttons class="btn btn-danger" ng-if="!underEdit"><i class="glyphicon glyphicon-trash"></i></buttons>
+      </td>
     </tr>
   </tbody>
 </table>
